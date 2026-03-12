@@ -1,71 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Obsidian Web Clipper</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Obsidian Web Clipper</title>
     <link rel="stylesheet" href="popup.css" />
   </head>
 <body>
-    <div id="app">
-          <header class="header">
-                  <div class="header-icon">
-                            <img src="../icons/icon48.png" alt="Obsidian" width="24" height="24" />
-                  </div>div>
-                  <h1 class="header-title">Web Clipper</h1>h1>
-                  <button id="btn-options" class="btn-icon" title="Settings">
-                            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
-                                        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm4.879-2.773 4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559V5.442a.25.25 0 0 1 .379-.215Z"/>
-                            </svg>svg>
-                  </button>button>
-          </header>header>
+  <div id="app">
+    <header class="header">
+      <div class="header-icon">
+        <img src="../icons/icon48.png" alt="Obsidian" width="24" height="24" />
+      </div>
+      <h1 class="header-title">Web Clipper</h1>
+      <button id="btn-options" class="btn-icon" title="Settings">
+        <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor">
+          <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm4.879-2.773 4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559V5.442a.25.25 0 0 1 .379-.215Z"/>
+        </svg>
+      </button>
+    </header>
 
-          <div id="status-bar" class="status-bar hidden"></div>div>
+    <div id="status-bar" class="status-bar hidden"></div>
 
-          <div id="content" class="content">
-                  <div class="field">
-                            <label for="note-title" class="label">Title</label>label>
-                            <input type="text" id="note-title" class="input" placeholder="Note title..." />
-                  </div>div>
+    <div id="content" class="content">
+      <div class="field">
+        <label for="note-title" class="label">Title</label>
+        <input type="text" id="note-title" class="input" placeholder="Note title..." />
+      </div>
 
-                  <div class="field">
-                            <label for="note-folder" class="label">Folder</label>label>
-                            <div class="input-with-list">
-                                        <input type="text" id="note-folder" class="input" placeholder="e.g. Clippings/GitHub" />
-                                        <datalist id="folder-suggestions"></datalist>datalist>
-                            </div>div>
-                  </div>div>
+      <div class="field">
+        <label for="note-folder" class="label">Folder</label>
+        <div class="input-with-list">
+          <input type="text" id="note-folder" class="input" placeholder="e.g. Clippings/GitHub" />
+          <datalist id="folder-suggestions"></datalist>
+        </div>
+      </div>
 
-                  <div class="field">
-                            <label class="label">Tags</label>label>
-                            <div id="tags-container" class="tags-container">
-                                        <span class="no-tags">Loading...</span>span>
-                            </div>div>
-                  </div>div>
+      <div class="field">
+        <label class="label">Tags</label>
+        <div id="tags-container" class="tags-container">
+          <span class="no-tags">Loading...</span>
+        </div>
+      </div>
 
-                  <div class="field">
-                            <label for="note-extra" class="label">Extra notes</label>label>
-                            <textarea id="note-extra" class="textarea" placeholder="Add your own notes..." rows="3"></textarea>
-                  </div>div>
+      <div class="field">
+        <label for="note-extra" class="label">Extra notes</label>
+        <textarea id="note-extra" class="textarea" placeholder="Add your own notes..." rows="3"></textarea>
+      </div>
 
-                  <div class="actions">
-                            <button id="btn-save" class="btn btn-primary" disabled>
-                                        <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor">
-                                                      <path d="M10.586 1H4.5A1.5 1.5 0 0 0 3 2.5v11A1.5 1.5 0 0 0 4.5 15h7a1.5 1.5 0 0 0 1.5-1.5V5.414L10.586 1ZM4.5 2h5.672L13 4.828V13.5a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-11A.5.5 0 0 1 4.5 2Zm3 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/>
-                                        </svg>svg>
-                                        Save to Obsidian
-                            </button>button>
-                  </div>div>
-          </div>div>
+      <div class="actions">
+        <button id="btn-save" class="btn btn-primary" disabled>
+          <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor">
+            <path d="M10.586 1H4.5A1.5 1.5 0 0 0 3 2.5v11A1.5 1.5 0 0 0 4.5 15h7a1.5 1.5 0 0 0 1.5-1.5V5.414L10.586 1ZM4.5 2h5.672L13 4.828V13.5a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-11A.5.5 0 0 1 4.5 2Zm3 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/>
+          </svg>
+          Save to Obsidian
+        </button>
+      </div>
+    </div>
 
-          <div id="loading" class="loading hidden">
-                  <div class="spinner"></div>div>
-                  <span>Saving...</span>
-          </div>div>
-    </div>div>
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <span>Saving...</span>
+    </div>
+  </div>
 
   <script src="popup.js"></script>
 </body>
-</html>html></span>
-</body></title>
-  </head>
+</html>

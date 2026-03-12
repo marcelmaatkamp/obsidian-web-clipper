@@ -84,7 +84,18 @@ async function testObsidianConnection(apiUrl, apiKey) {
     const headers = { 'Accept': 'application/json' };
     if (apiKey) headers['Authorization'] = `Bearer ${apiKey}`;
 
-  const response = await fetch(url, { headers });
+    let response;
+    try {
+        response = await fetch(url, { headers });
+    } catch (e) {
+        if (apiUrl.startsWith('https') && e.message && e.message.includes('Failed to fetch')) {
+            throw new Error(
+                'SSL certificate not trusted. Open ' + url + ' in a browser tab, accept the certificate warning, then try again.'
+            );
+        }
+        throw e;
+    }
+
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     return await response.json();
 }
@@ -95,7 +106,7 @@ async function testObsidianConnection(apiUrl, apiKey) {
 async function getSettings() {
     return new Promise((resolve) => {
           chrome.storage.sync.get({
-                  apiUrl: 'http://127.0.0.1:27123',
+                  apiUrl: 'https://127.0.0.1:27124',
                   apiKey: '',
                   defaultFolder: '',
                   defaultVault: '',

@@ -205,7 +205,7 @@ function getPageData() {
 function getSettings() {
     return new Promise((resolve) => {
           chrome.storage.sync.get({
-                  apiUrl: 'http://127.0.0.1:27123',
+                  apiUrl: 'https://127.0.0.1:27124',
                   apiKey: '',
                   defaultFolder: '',
                   githubFolder: '',
