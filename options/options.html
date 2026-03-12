@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Obsidian Web Clipper - Settings</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+<body>
+    <div class="container">
+          <header class="page-header">
+                  <img src="../icons/icon48.png" alt="Obsidian Web Clipper" width="36" height="36" />
+                  <div>
+                            <h1>Obsidian Web Clipper</h1>
+                          <p class="subtitle">Settings</p>p>
+                  </div>
+          </header>header>
+    
+        <div id="status-message" class="status-message hidden"></div>
+    
+        <form id="settings-form">
+        
+              <section class="section">
+                      <h2 class="section-title">Obsidian REST API Connection</h2>
+                      <p class="section-desc">
+                        Install the <a href="https://github.com/coddingtonbear/obsidian-local-rest-api" target="_blank">Local REST API plugin</a>a>
+                        in Obsidian, then copy the API key from its settings.
+                      </p>p>
+              
+                      <div class="field">
+                                <label for="api-url" class="label">API URL</label>label>
+                                <input
+                                              type="url"
+                                              id="api-url"
+                                              name="apiUrl"
+                                              class="input"
+                                              placeholder="http://127.0.0.1:27123"
+                                              value="http://127.0.0.1:27123"
+                                            />
+                                <span class="hint">Default: http://127.0.0.1:27123 (HTTP) or https://127.0.0.1:27124 (HTTPS)</span>span>
+                      </div>
+              
+                      <div class="field">
+                                <label for="api-key" class="label">API Key</label>label>
+                                <div class="input-group">
+                                            <input
+                                                            type="password"
+                                                            id="api-key"
+                                                            name="apiKey"
+                                                            class="input"
+                                                            placeholder="Paste your API key here"
+                                                            autocomplete="off"
+                                                          />
+                                            <button type="button" id="btn-toggle-key" class="btn btn-secondary btn-sm">Show</button>button>
+                                </div>
+                                <span class="hint">Found in Obsidian: Settings > Local REST API > API Key</span>span>
+                      </div>
+              
+                      <div class="field">
+                                <button type="button" id="btn-test" class="btn btn-secondary">
+                                            Test Connection
+                                </button>button>
+                                <span id="connection-status" class="connection-status"></span>span>
+                      </div>
+              </section>section>
+        
+              <section class="section">
+                      <h2 class="section-title">Default Save Locations</h2>
+                      <p class="section-desc">
+                        Set default folders for saving notes. You can always change the folder in the popup before saving.
+                      </p>p>
+              
+                      <div class="field">
+                                <label for="default-folder" class="label">Default Folder</label>label>
+                                <input
+                                              type="text"
+                                              id="default-folder"
+                                              name="defaultFolder"
+                                              class="input"
+                                              placeholder="e.g. Clippings"
+                                            />
+                                <span class="hint">Leave empty to save to vault root</span>span>
+                      </div>
+              
+                      <div class="field">
+                                <label for="github-folder" class="label">GitHub Repos Folder</label>label>
+                                <input
+                                              type="text"
+                                              id="github-folder"
+                                              name="githubFolder"
+                                              class="input"
+                                              placeholder="e.g. Clippings/GitHub"
+                                            />
+                                <span class="hint">Override default folder specifically for GitHub repository pages</span>span>
+                      </div>
+              </section>section>
+        
+              <section class="section">
+                      <h2 class="section-title">Note Template</h2>
+                      <div class="field">
+                                <label class="label">Included Fields</label>label>
+                                <div class="checkbox-group">
+                                            <label class="checkbox-label">
+                                                          <input type="checkbox" id="include-description" checked /> Description
+                                            </label>label>
+                                            <label class="checkbox-label">
+                                                          <input type="checkbox" id="include-stats" checked /> Stats (stars, forks, etc.)
+                                            </label>label>
+                                            <label class="checkbox-label">
+                                                          <input type="checkbox" id="include-tags" checked /> Tags from page
+                                            </label>label>
+                                </div>
+                      </div>
+              </section>section>
+        
+              <div class="form-actions">
+                      <button type="submit" class="btn btn-primary">Save Settings</button>button>
+                      <button type="button" id="btn-reset" class="btn btn-ghost">Reset to Defaults</button>button>
+              </div>
+        
+        </form>form>
+    
+        <footer class="page-footer">
+              <p>
+                        <a href="https://github.com/marcelmaatkamp/obsidian-web-clipper" target="_blank">View on GitHub</a>a>
+                        &bull;
+                        <a href="https://github.com/coddingtonbear/obsidian-local-rest-api" target="_blank">Local REST API Plugin</a>a>
+              </p>
+        </footer>footer>
+    </div>
+
+    <script src="options.js"></script>
+</body>
+</html>html>
+              </p></h1>
+                  </div>
+</body></title>
+  </head>
