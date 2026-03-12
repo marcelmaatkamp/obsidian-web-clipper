@@ -81,7 +81,7 @@ The note is saved as a Markdown file with YAML frontmatter:
 
 ```markdown
 ---
-title: "owner/repo"
+title: "github.com/owner/repo"
 url: "https://github.com/owner/repo"
 description: "A short description"
 stars: 1234
@@ -89,11 +89,12 @@ forks: 56
 language: TypeScript
 date_saved: 2026-03-12
 tags:
+  - github
   - typescript
   - obsidian
 ---
 
-# owner/repo
+# github.com/owner/repo
 
 > A short description
 

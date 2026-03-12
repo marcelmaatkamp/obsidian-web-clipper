@@ -81,6 +81,7 @@ function extractGitHubData(baseData) {
   // Extract topics/tags
   const topicLinks = document.querySelectorAll('a[data-octo-click="topic_click"], .topic-tag, [class*="topic"]');
     const tags = new Set();
+    tags.add('github');
     topicLinks.forEach(el => {
           const text = el.textContent.trim();
           if (text && text.length > 0 && text.length < 50) tags.add(text);
@@ -122,7 +123,7 @@ function extractGitHubData(baseData) {
 
   return {
         ...baseData,
-        title: `${owner}/${repo}`,
+        title: `github.com/${owner}/${repo}`,
         description,
         tags: Array.from(tags),
         type: 'github_repo',
